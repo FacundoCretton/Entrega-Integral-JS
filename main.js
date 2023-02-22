@@ -144,41 +144,58 @@ window.addEventListener('load', function() {
 });
 // ------------------------------------------------------ARROW---------------------------------
 
-  let arrow = document.getElementsByClassName('arrow');
-	let product = document.getElementsByClassName('product')
-	let product_page = Math.ceil(product.length/4);
-	let l = 0;
-	let movePer = 25.34;
-	let maxMove = 203;
-	// mobile_view	
-	let mob_view = window.matchMedia("(max-width: 768px)");
-	if (mob_view.matches)
-	 {
-	 	movePer = 50.36;
-	 	maxMove = 504;
-	 }
+// Obtener los elementos de flecha y productos por su clase
+let arrows = document.getElementsByClassName('arrow');
 
-	let right_mover = ()=>{
-		l = l + movePer;
-		if (product == 1){l = 0; }
-		for(const i of product)
-		{
-			if (l > maxMove){l = l - movePer;}
-			i.style.left = '-' + l + '%';
-		}
+// Calcular el número de páginas de productos
+let productPageCount = Math.ceil(products.length / 4);
 
-	}
-	let left_mover = ()=>{
-		l = l - movePer;
-		if (l<=0){l = 0;}
-		for(const i of product){
-			if (product_page>1){
-				i.style.left = '-' + l + '%';
-			}
-		}
-	}
-	arrow[1].onclick = ()=>{right_mover();}
-	arrow[0].onclick = ()=>{left_mover();}
+// Establecer valores para mover los productos
+let movePer = 25.34;
+let maxMove = 203;
+
+// Establecer valores para dispositivos móviles
+let mobileView = window.matchMedia("(max-width: 768px)");
+if (mobileView.matches) {
+  movePer = 50.36;
+  maxMove = 504;
+}
+
+// Función para mover hacia la derecha
+let moveRight = () => {
+  l = l + movePer;
+  if (l > maxMove) {
+    l = l - movePer;
+  }
+  for (const product of products) {
+    if (l > maxMove) {
+      l = l - movePer;
+    }
+    product.style.left = '-' + l + '%';
+  }
+}
+
+// Función para mover hacia la izquierda
+let moveLeft = () => {
+  l = l - movePer;
+  if (l < 0) {
+    l = 0;
+  }
+  for (const product of products) {
+    if (productPageCount > 1) {
+      product.style.left = '-' + l + '%';
+    }
+  }
+}
+
+// Asignar las funciones a los elementos de flecha
+arrows[1].onclick = () => {
+  moveRight();
+}
+arrows[0].onclick = () => {
+  moveLeft();
+}
+
  
 const init = () => {
 	renderProducts();
