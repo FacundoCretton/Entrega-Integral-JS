@@ -66,9 +66,9 @@ const renderDividedProducts = (container, index = 0) => {
 	  .join("");
   };
 
-const renderFilteredProducts = (category) => {
+const renderFilteredProducts = (categoria) => {
 	const productsList = productsData.filter((product) => {
-		return product.category === category;
+		return product.categoria === categoria;
 	});
 	products.innerHTML = productsList.map(renderProduct).join("");
 };
@@ -81,51 +81,51 @@ const renderProducts = (index = 0, categoria = undefined) => {
 	renderFilteredProducts(categoria);
 };
 
-const changeShowMoreBtnState = (categoria) => {
-	if (!categoria) {
-		btnLoad.classList.remove("hidden");
-		return;
-	}
-	btnLoad.classList.add("hidden");
-};
+// const changeShowMoreBtnState = (categoria) => {
+// 	if (!categoria) {
+// 		btnLoad.classList.remove("hidden");
+// 		return;
+// 	}
+// 	btnLoad.classList.add("hidden");
+// };
 
-const changeBtnActiveState = (selectedCategory) => {
-	const categories = [...categoriesList];
-	categories.forEach((categoryBtn) => {
-		if (categoryBtn.dataset.category !== selectedCategory) {
-			categoryBtn.classList.remove("active");
-			return;
-		}
-		categoryBtn.classList.add("active");
-	});
-};
+// const changeBtnActiveState = (selectedCategory) => {
+// 	const categories = [...categoriesList];
+// 	categories.forEach((categoryBtn) => {
+// 		if (categoryBtn.dataset.category !== selectedCategory) {
+// 			categoryBtn.classList.remove("active");
+// 			return;
+// 		}
+// 		categoryBtn.classList.add("active");
+// 	});
+// };
 
-const changeFilterState = (e) => {
-	const selectedCategory = e.target.dataset.category;
-	changeShowMoreBtnState(selectedCategory);
-	changeBtnActiveState(selectedCategory);
-};
+// const changeFilterState = (e) => {
+// 	const selectedCategory = e.target.dataset.category;
+// 	changeShowMoreBtnState(selectedCategory);
+// 	changeBtnActiveState(selectedCategory);
+// };
 
-const applyFilter = (e) => {
-	if (!e.target.classList.contains("category")) {
-		return;
-	} else {
-		changeFilterState(e);
-	}
-	if (!e.target.dataset.category) {
-		products.innerHTML = "";
-		renderProducts();
-	} else {
-		renderProducts(0, e.target.dataset.category);
-		productsController.nextProductsIndex = 1;
-	}
-};
+// const applyFilter = (e) => {
+// 	if (!e.target.classList.contains("category")) {
+// 		return;
+// 	} else {
+// 		changeFilterState(e);
+// 	}
+// 	if (!e.target.dataset.category) {
+// 		products.innerHTML = "";
+// 		renderProducts();
+// 	} else {
+// 		renderProducts(0, e.target.dataset.category);
+// 		productsController.nextProductsIndex = 1;
+// 	}
+// };
 
-const isLastIndexOf = () => {
-	return (
-		productsController.nextProductsIndex === productsController.productsLimit
-	);
-};
+// const isLastIndexOf = () => {
+// 	return (
+// 		productsController.nextProductsIndex === productsController.productsLimit
+// 	);
+// };
 
 
 
@@ -142,45 +142,43 @@ window.addEventListener('load', function() {
   });
   
 });
-// ------------------------------------------------------ARROW--------------------
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
+// ------------------------------------------------------ARROW---------------------------------
 
+  let arrow = document.getElementsByClassName('arrow');
+	let product = document.getElementsByClassName('product')
+	let product_page = Math.ceil(product.length/4);
+	let l = 0;
+	let movePer = 25.34;
+	let maxMove = 203;
+	// mobile_view	
+	let mob_view = window.matchMedia("(max-width: 768px)");
+	if (mob_view.matches)
+	 {
+	 	movePer = 50.36;
+	 	maxMove = 504;
+	 }
 
-let currentProductIndex = 0;
-const productCount = 6; 
-let totalProducts = productCount;
+	let right_mover = ()=>{
+		l = l + movePer;
+		if (product == 1){l = 0; }
+		for(const i of product)
+		{
+			if (l > maxMove){l = l - movePer;}
+			i.style.left = '-' + l + '%';
+		}
 
-
-
-
-const showNextProduct = (direction) => {
-	if (direction === "right") {
-	  currentProductIndex = (currentProductIndex + 1) % totalProducts;
-	} else {
-	  currentProductIndex = (currentProductIndex - 1 + totalProducts) % totalProducts;
 	}
-	renderProduct(products[currentProductIndex]);
-	console.log("HOLAAAAAAAAAA");
-};
-
-function showPreviousProduct() {
-	currentProductIndex--;
-	if (currentProductIndex < 0) {
-	  currentProductIndex = productCount - 1;
+	let left_mover = ()=>{
+		l = l - movePer;
+		if (l<=0){l = 0;}
+		for(const i of product){
+			if (product_page>1){
+				i.style.left = '-' + l + '%';
+			}
+		}
 	}
-	renderProduct(products[currentProductIndex]);
-}
-
-  
-rightArrow.addEventListener('click', () => {
-	showNextProduct("right");
-});
-  
-leftArrow.addEventListener('click', () => {
-	showNextProduct("left");
-});
-  
+	arrow[1].onclick = ()=>{right_mover();}
+	arrow[0].onclick = ()=>{left_mover();}
  
 const init = () => {
 	renderProducts();
