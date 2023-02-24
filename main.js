@@ -1,11 +1,15 @@
-const products = document.querySelector('.product-container');
+const products = document.querySelector(".product-container");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
-const categoriaDefault = 'todos';
 const categoriaList = document.querySelector(".bts-fil")
 const btnLoad = document.querySelector(".btn-load");
-const flipIcons = document.querySelectorAll('.flip-icon');
-const card = document.querySelector('.card');
+const flipIcons = document.querySelectorAll(".flip-icon");
+const card = document.querySelector(".card");
+const header=document.querySelector("header")
+const toggleThemeButton = document.getElementById("toggle-theme");
+const bodyElement = document.querySelector("body");
+const sunIcon = document.querySelector("#sun-icon");
+const moonIcon = document.querySelector("#moon-icon");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const saveLocalStorage = (cartList) => {
@@ -148,16 +152,48 @@ const showMoreProducts = () => {
 	}
   flipCard()
 };
-window.addEventListener("scroll", function() {
+
+// ------Navbar-scroll-----
+const toggleHeaderBackground =() => {
   var header = document.querySelector("header");
   header.classList.toggle("scrolled", window.scrollY > 0);
-});
+}
+
+// ------Modo oscuro--------
+toggleTheme = () => {
+  bodyElement.classList.toggle("dark");
+  
+  if (bodyElement.classList.contains("dark")) {
+    sunIcon.style.display = "block";
+    moonIcon.style.display = "none";
+    header.classList.add("dark-mode");
+    toggleHeaderBackground(".dark header.scrolled");
+    localStorage.setItem("modo", "dark")
+  } else {
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "block";
+    header.classList.remove("dark-mode");
+    toggleHeaderBackground("header.scrolled");
+    localStorage.setItem("modo", "light");
+
+  }
+}
+
+
+
 
 const init =()=>{
   renderProducts()
   categoriaList.addEventListener("click", applyFilter);
 	btnLoad.addEventListener("click", showMoreProducts);
   window.addEventListener('load', flipCard);
+  toggleThemeButton.addEventListener('click', toggleTheme);
+  window.addEventListener("scroll", toggleHeaderBackground);
+  const mode = localStorage.getItem("mode");
+  if (mode === "dark") {
+    toggleTheme();
+  }
+
 }
 init();
 

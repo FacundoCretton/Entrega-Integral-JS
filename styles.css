@@ -24,7 +24,6 @@ header {
   padding: 0px 25px;
   align-items: center;
   height: 50px;
-  /* border: 1px solid #ccc; */
   transition: background-color 0.5s ease-in-out;
   font-weight: bold;
 }
@@ -65,6 +64,12 @@ header.scrolled {
   background-color: #2e2e2e;
   color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.dark header.scrolled {
+  background-color: #1e1e1e;
+  color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fff;
 }
 
 /* ----------HERO------------ */
@@ -294,12 +299,24 @@ header.scrolled {
   transform: rotateY(0);
 }
 .btn-load {
-  background: none;
-  border: 1px solid var(--electric);
-  padding: 10px 35px;
-  color: var(--bg-white);
-  border-radius: 10px;
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  background: #ff0a78;
+}
+.btn-load:hover {
+  background-color: #ff6392;
 }
 
 .bts-fil {
@@ -373,55 +390,74 @@ header.scrolled {
 }
 
 .boton-menu {
-  background-color: transparent;
-  border: 0;
-  color: var(green);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-weight: 600;
-  padding: 1rem;
-  font-size: 0.85rem;
-  width: 100%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 15px;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  background: linear-gradient(to bottom, #6b6365, #0022ff);
+  box-shadow: #d3fbff 0px 0px 40px 0px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #e1e1e1;
 }
-
-.boton-menu.active {
-  background-color: var(blue);
-  color: var(--clr-main);
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  position: relative;
+.boton-menu:hover,
+.boton-menu:focus {
+  background: #807779;
 }
-
-.boton-menu.active::before {
-  content: "";
-  position: absolute;
-  width: 1rem;
-  height: 2rem;
-  bottom: 100%;
-  right: 0;
-  background-color: transparent;
-  border-bottom-right-radius: 0.5rem;
-  box-shadow: 0 1rem 0 var(red);
-}
-
-.boton-menu.active::after {
-  content: "";
-  position: absolute;
-  width: 1rem;
-  height: 2rem;
-  top: 100%;
-  right: 0;
-  background-color: transparent;
-  border-top-right-radius: 0.5rem;
-}
-
-.active {
-  background: red;
+.boton-menu:active {
+  background: #403b3d;
 }
 
 /* -----------------------------------------ZONA DE PRUEBAS----------------------------------------- */
-.navbar.bts-fil {
+/* .navbar.bts-fil {
   max-width: none;
+} */
+
+/* Tema claro */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Tema oscuro */
+body.dark {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.theme-button {
+  border: 1px solid;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+#sun-icon {
+  display: block;
+}
+
+#moon-icon {
+  display: none;
+}
+
+header.dark-mode {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn-ico {
+  width: 16px;
+  height: 16px;
 }
