@@ -1,70 +1,65 @@
-// Contenedor de productos
-const products = document.querySelector('.categoria-container');
+const products = document.querySelector('.product-container');
+const botonesCategorias = document.querySelectorAll(".boton-categoria");
+const tituloPrincipal = document.querySelector("#titulo-principal");
+const categoriaDefault = 'todos';
+const categoriaList = document.querySelector(".bts-fil")
+const btnLoad = document.querySelector(".btn-load");
+const flipIcons = document.querySelectorAll('.flip-icon');
+const card = document.querySelector('.card');
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-
-
-const renderProduct = (product) => {
-	if (!product) {
-		return;
-	  }
-  const { id, nombre, precio, duracion, itinerario, backgroundImg, categoria } = product;
-
-  // crear la tarjeta de producto
-  const productCard = document.createElement('div');
-  productCard.classList.add('product-cards');
-  productCard.dataset.categoria = categoria;
-  productCard.innerHTML = `
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <div class="product-card-image" style="background-image: url(${backgroundImg})">
-            <h2 class="product-name">${nombre}</h2>
-          </div>
-          <div class="product-price">
-            <p>Precio</p>
-            <span>$${precio}</span>
-          </div>
-          <div class="product-duration">
-            <p>Duracion</p> 
-            <span>${duracion} noches</span> 
-          </div>
-          <div class="product-bot">
-            <div class="btn-flip">
-              <button class="btn-buy">Add</button>
-              <div class="flip-icon"><i class="fas fa-arrow-circle-right"></i></div>
-            </div>                  
-          </div>
-        </div>
-        <div class="card-back">
-          <div class="itinerario">
-            <h2>Itinerario</h2>
-            <ul>
-              ${itinerario.map((dia) => `<li><span>${dia}</span></li>`).join('')}
-            </ul>
-          </div>
-          <div class="flip-icon"><i class="fas fa-arrow-circle-left"></i></div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // obtener el contenedor de categoría correspondiente
-  const categoriaContainer = document.querySelector(`[data-categoria="${categoria}"]`);
-
-  // insertar la tarjeta de producto en el contenedor de categoría
-  categoriaContainer.appendChild(productCard);
+const saveLocalStorage = (cartList) => {
+	localStorage.setItem("cart", JSON.stringify(cartList));
 };
 
 
+const renderProduct = (product) => {
+  const { id, nombre, precio, duracion, itinerario, backgroundImg } = product;
 
-
-
-
-const renderDividedProducts = (container, index = 0) => {
-	container.innerHTML += productsController.dividedProducts[index]
-	  .map(renderProduct)
-	  .join("");
-  };
+  return `
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">
+        <div class="product-card-image" style="background-image: url(${backgroundImg})">
+          <h2 class="product-name">${nombre}</h2>
+        </div>
+        <div class="product-price">
+          <p>Precio</p>
+          <span>$${precio}</span>
+        </div>
+        <div class="product-duration">
+          <p>Duracion</p> 
+          <span>${duracion} noches</span> 
+        </div>
+        <div class="product-bot">
+          <div class="btn-flip">
+            <button class="btn-buy" 
+            data-id="${id}"
+            data-name="${nombre}"
+            data-bid="${precio}"
+            data-img="${backgroundImg}">Add</button>
+            <div class="flip-icon"><i class="fas fa-arrow-circle-right"></i></div>
+          </div>                  
+        </div>
+      </div>
+      <div class="card-back">
+        <div class="itinerario">
+          <h2>Itinerario</h2>
+          <ul>
+            ${itinerario.map((dia) => `<li><span>${dia}</span></li>`).join('')}
+          </ul>
+        </div>
+        <div class="flip-icon"><i class="fas fa-arrow-circle-left"></i></div>
+      </div>
+    </div>
+  </div>
+  `;
+}
+const renderDividedProducts = (index = 0) => {
+	products.innerHTML += productsController.dividedProducts[index]
+		.map(renderProduct)
+		.join("");
+};
 
 const renderFilteredProducts = (categoria) => {
 	const productsList = productsData.filter((product) => {
@@ -73,140 +68,99 @@ const renderFilteredProducts = (categoria) => {
 	products.innerHTML = productsList.map(renderProduct).join("");
 };
 
-const renderProducts = (index = 0, categoria = undefined) => {
+
+
+const renderProducts = (index=0, categoria = undefined) => {
+  if (!categoria) {
+    renderDividedProducts(index);
+    return;
+    
+  }
+  renderFilteredProducts(categoria)
+}
+const changeShowMoreBtnState = (categoria) => {
 	if (!categoria) {
-		renderDividedProducts(index);
+		btnLoad.classList.remove("hidden");
 		return;
 	}
-	renderFilteredProducts(categoria);
+	btnLoad.classList.add("hidden");
+};
+const changeBtnActiveState = (categoriaSeleccionada) => {
+	const categories = [...botonesCategorias]; // (Esto lo hago porque al no ser un array los botones, no puedo pasarle un forEach directamente)
+	categories.forEach((botonCategoria) => {
+		if (botonCategoria.dataset.categoria !== categoriaSeleccionada) {
+			botonCategoria.classList.remove("active");
+			return;
+		}
+		botonCategoria.classList.add("active");
+	});
 };
 
-// const changeShowMoreBtnState = (categoria) => {
-// 	if (!categoria) {
-// 		btnLoad.classList.remove("hidden");
-// 		return;
-// 	}
-// 	btnLoad.classList.add("hidden");
-// };
+const changeFilterState = (e) => {
+	const categoriaSeleccionada = e.target.dataset.categoria;
+	changeShowMoreBtnState(categoriaSeleccionada);
+	changeBtnActiveState(categoriaSeleccionada);
+};
 
-// const changeBtnActiveState = (selectedCategory) => {
-// 	const categories = [...categoriesList];
-// 	categories.forEach((categoryBtn) => {
-// 		if (categoryBtn.dataset.category !== selectedCategory) {
-// 			categoryBtn.classList.remove("active");
-// 			return;
-// 		}
-// 		categoryBtn.classList.add("active");
-// 	});
-// };
-
-// const changeFilterState = (e) => {
-// 	const selectedCategory = e.target.dataset.category;
-// 	changeShowMoreBtnState(selectedCategory);
-// 	changeBtnActiveState(selectedCategory);
-// };
-
-// const applyFilter = (e) => {
-// 	if (!e.target.classList.contains("category")) {
-// 		return;
-// 	} else {
-// 		changeFilterState(e);
-// 	}
-// 	if (!e.target.dataset.category) {
-// 		products.innerHTML = "";
-// 		renderProducts();
-// 	} else {
-// 		renderProducts(0, e.target.dataset.category);
-// 		productsController.nextProductsIndex = 1;
-// 	}
-// };
-
-// const isLastIndexOf = () => {
-// 	return (
-// 		productsController.nextProductsIndex === productsController.productsLimit
-// 	);
-// };
-
-
-
-
-
-window.addEventListener('load', function() {
+const flipCard = () => {
   const flipIcons = document.querySelectorAll('.flip-icon');
 
   flipIcons.forEach(flipIcon => {
     flipIcon.addEventListener('click', function() {
-      const card = flipIcon.closest('.card');
+      const card = this.closest('.card');
+      if (!card) return; // 
+
       card.classList.toggle('flipped');
     });
   });
-  
-});
-// ------------------------------------------------------ARROW---------------------------------
-
-// Obtener los elementos de flecha y productos por su clase
-let arrows = document.getElementsByClassName('arrow');
-
-// Calcular el número de páginas de productos
-let productPageCount = Math.ceil(products.length / 4);
-
-// Establecer valores para mover los productos
-let movePer = 25.34;
-let maxMove = 203;
-
-// Establecer valores para dispositivos móviles
-let mobileView = window.matchMedia("(max-width: 768px)");
-if (mobileView.matches) {
-  movePer = 50.36;
-  maxMove = 504;
 }
 
-// Función para mover hacia la derecha
-let moveRight = () => {
-  l = l + movePer;
-  if (l > maxMove) {
-    l = l - movePer;
-  }
-  for (const product of products) {
-    if (l > maxMove) {
-      l = l - movePer;
-    }
-    product.style.left = '-' + l + '%';
-  }
-}
 
-// Función para mover hacia la izquierda
-let moveLeft = () => {
-  l = l - movePer;
-  if (l < 0) {
-    l = 0;
-  }
-  for (const product of products) {
-    if (productPageCount > 1) {
-      product.style.left = '-' + l + '%';
-    }
-  }
-}
 
-// Asignar las funciones a los elementos de flecha
-arrows[1].onclick = () => {
-  moveRight();
-}
-arrows[0].onclick = () => {
-  moveLeft();
-}
 
- 
-const init = () => {
-	renderProducts();
-  
-	categories.addEventListener("click", applyFilter);
-	btnLoad.addEventListener("click", showMoreProducts);
-	barsBtn.addEventListener("click", toggleMenu);
-	cartBtn.addEventListener("click", toggleCart);
-	barsMenu.addEventListener("click", closeOnClick);
-	window.addEventListener("scroll", closeOnScroll);
-	overlay.addEventListener("click", closeOnOverlayClick);
+const applyFilter = (e) => {
+	if (!e.target.classList.contains("boton-categoria")) {
+		return;
+	} else {
+		changeFilterState(e);
+	}
+	if (!e.target.dataset.categoria) {
+		products.innerHTML = "";
+		renderProducts();
+	} else {
+		renderProducts(0, e.target.dataset.categoria);
+		productsController.nextProductsIndex = 1;
+	}
+  flipCard()
 };
 
+const isLastIndexOf = () => {
+	return (
+		productsController.nextProductsIndex === productsController.productsLimit
+	);
+};
+
+const showMoreProducts = () => {
+	renderProducts(productsController.nextProductsIndex);
+	productsController.nextProductsIndex++;
+	if (isLastIndexOf()) {
+		btnLoad.classList.add("hidden");
+	}
+  flipCard()
+};
+window.addEventListener("scroll", function() {
+  var header = document.querySelector("header");
+  header.classList.toggle("scrolled", window.scrollY > 0);
+});
+
+const init =()=>{
+  renderProducts()
+  categoriaList.addEventListener("click", applyFilter);
+	btnLoad.addEventListener("click", showMoreProducts);
+  window.addEventListener('load', flipCard);
+}
 init();
+
+
+
+

@@ -264,7 +264,7 @@
 		precio: 1525,
 		duracion: 6,
 		itinerario: ['Dia 1: Buenos Aires', 'Dia 2: Navegación a Europa', 'Dia 3: Mónaco', 'Dia 4: Saint-Tropez, Francia', 'Dia 5: Cannes, Francia', 'Dia 6: Niza, Francia'],
-		backgroundImg: '/Assets/Img/Costa-Azul',
+		backgroundImg: '/Assets/Img/Costa-Azul.jpg',
 		categoria: 'Europa'
 	},
 
@@ -281,25 +281,7 @@ const splitProducts = (size) => {
 };
 
 const productsController = {
-	dividedProducts: splitProducts(4),
-	nextProductsIndex: 0,
-	productsLimit: splitProducts(4).length,
-	showNextProduct: function() {
-	  const currentProductIndex = this.nextProductsIndex;
-	  const currentProduct = this.dividedProducts[currentProductIndex];
-  
-	  currentProduct.forEach(function(product) {
-		renderProduct(product);
-	  });
-  
-	  const previousProductIndex = currentProductIndex === 0 ? this.productsLimit - 1 : currentProductIndex - 1;
-	  const previousProduct = this.dividedProducts[previousProductIndex];
-  
-	  previousProduct.forEach(function(product) {
-		productContainer.removeChild(productContainer.firstChild);
-	  });
-  
-	  this.nextProductsIndex = currentProductIndex === this.productsLimit - 1 ? 0 : currentProductIndex + 1;
-	}
+	dividedProducts: splitProducts(3),
+	nextProductsIndex: 1,
+	productsLimit: splitProducts(3).length,
 };
-  
