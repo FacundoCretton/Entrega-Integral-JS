@@ -12,6 +12,9 @@ const sunIcon = document.querySelector("#sun-icon");
 const moonIcon = document.querySelector("#moon-icon");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+
+
+
 const saveLocalStorage = (cartList) => {
 	localStorage.setItem("cart", JSON.stringify(cartList));
 };
@@ -74,6 +77,7 @@ const renderFilteredProducts = (categoria) => {
 
 
 
+
 const renderProducts = (index=0, categoria = undefined) => {
   if (!categoria) {
     renderDividedProducts(index);
@@ -81,6 +85,7 @@ const renderProducts = (index=0, categoria = undefined) => {
     
   }
   renderFilteredProducts(categoria)
+
 }
 const changeShowMoreBtnState = (categoria) => {
 	if (!categoria) {
@@ -104,6 +109,7 @@ const changeFilterState = (e) => {
 	const categoriaSeleccionada = e.target.dataset.categoria;
 	changeShowMoreBtnState(categoriaSeleccionada);
 	changeBtnActiveState(categoriaSeleccionada);
+  
 };
 
 const flipCard = () => {
@@ -112,7 +118,7 @@ const flipCard = () => {
   flipIcons.forEach(flipIcon => {
     flipIcon.addEventListener('click', function() {
       const card = this.closest('.card');
-      if (!card) return; // 
+      if (!card) return;  
 
       card.classList.toggle('flipped');
     });
@@ -178,7 +184,12 @@ toggleTheme = () => {
 
   }
 }
-
+// botonesCategorias.forEach((btn) => {
+//   btn.addEventListener("click", function (event) {
+//     const categoria = event.target.dataset.categoria;
+//     renderCategoryProducts(categoria);
+//   });
+// });
 
 
 
