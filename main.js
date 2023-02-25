@@ -10,6 +10,8 @@ const toggleThemeButton = document.getElementById("toggle-theme");
 const bodyElement = document.querySelector("body");
 const sunIcon = document.querySelector("#sun-icon");
 const moonIcon = document.querySelector("#moon-icon");
+const navLinks = document.querySelectorAll('.navbar a');
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
@@ -184,6 +186,23 @@ toggleTheme = () => {
 
   }
 }
+// ------------------Smooth Scroll----------------
+function smoothScroll() {
+  // Selecciona todos los enlaces de la navbar
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const href = link.getAttribute('href');
+      const offsetTop = document.querySelector(href).offsetTop;
+      window.scrollTo({
+        top: offsetTop - 60,
+        behavior: 'smooth'
+      });
+    });
+  });
+}
+// -------------------------------------------------------
 // botonesCategorias.forEach((btn) => {
 //   btn.addEventListener("click", function (event) {
 //     const categoria = event.target.dataset.categoria;
@@ -204,10 +223,10 @@ const init =()=>{
   if (mode === "dark") {
     toggleTheme();
   }
+  smoothScroll();
 
 }
 init();
-
 
 
 

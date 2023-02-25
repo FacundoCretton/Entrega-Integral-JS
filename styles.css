@@ -23,7 +23,7 @@ header {
   justify-content: space-between;
   padding: 0px 25px;
   align-items: center;
-  height: 50px;
+  height: 60px;
   transition: background-color 0.5s ease-in-out;
   font-weight: bold;
 }
@@ -56,8 +56,47 @@ header {
   color: #fff;
 }
 
+.navbar-list a {
+  position: relative;
+  color: #fff;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.navbar-list a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
 .navbar-list a:hover {
   color: #f97bbf;
+}
+.navbar-list a:hover::before {
+  transform: scaleX(1);
+}
+
+.navbar-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-list a:hover::after {
+  transform: scaleX(1);
 }
 
 header.scrolled {
@@ -385,35 +424,68 @@ header.scrolled {
 }
 /* ----------------------------------------FOOTER---------------------------------------- */
 /* FOOTER */
-
-.footer-container .pie-pagina-sup {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+.footer-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 50px;
-  padding: 45px 0px;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 20px;
+  align-items: center;
 }
 
-.footer-container .pie-pagina-sup .box .image-footer {
-  width: 100%;
-  height: 100%;
+.footer-left-fraction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.footer-left-fraction ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-left-fraction li {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.image-footer img {
-  width: 150px;
-}
-.footer-container .pie-pagina-sup .box h2 {
-  margin-bottom: 25px;
-  font-size: 20px;
-}
-.footer-container .pie-pagina-sup .box p {
   margin-bottom: 10px;
 }
-.footer-redes-sociales i {
+
+.footer-left-fraction li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.footer-left-fraction li span {
+  color: #a2a2a2;
+  font-size: 16px;
+}
+
+.footer-logo {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.footer-logo img {
+  width: 200px;
+}
+
+.footer-redes-sociales-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.footer-redes-sociales-container i {
   font-size: 20px;
   margin: 20px;
   width: 30px;
@@ -425,7 +497,6 @@ header.scrolled {
   color: #a2a2a2;
   border: 1px solid;
 }
-
 .fa-facebook-f:hover {
   background: #41579a;
   color: #fff;
@@ -462,6 +533,40 @@ header.scrolled {
     #ff00ff
   );
   color: #ff0000;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3;
+  grid-row: 2;
+}
+.footer-links ul {
+  margin: 0;
+  padding: 0;
+  /* grid-column: 1 / span 1; */
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+}
+.footer-links a:hover {
+  color: #f97bbf;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #555;
+  margin: 20px 0;
+}
+
+.footer-copyright {
+  font-size: 15px;
 }
 
 /* -----------------------------------------ZONA DE PRUEBAS----------------------------------------- */
@@ -544,56 +649,3 @@ header.dark-mode {
 .submenu li a:hover {
   background-color: #f2f2f2;
 }
-
-/* ---------------------------------------Footer */
-/* footer {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.container-footer {
-  width: 100%;
-  padding: 40px 0;
-  
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* .container-footer footer {
-  max-width: 1200px;
-  margin: auto;
-} */
-
-/* .logo-footer {
-  text-align: center;
-}
-
-.logo-footer img {
-  width: 50px;
-}
-.redes-columna1 {
-  display: flex;
-}
-
-
-
-
-
-.text-columna1 {
-  font-size: 15px;
-}
-.container-footer hr {
-  margin-top: 20px;
-  border: none;
-  height: 2px;
-  background: #c0c0c07a;
-}
-
-.container-footer h4 {
-  text-align: center;
-  margin-top: 40px;
-  font-weight: 600;
-} */
