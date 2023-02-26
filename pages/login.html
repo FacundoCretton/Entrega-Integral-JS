@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./Modo-Oscuro-Claro/claro-oscuro.css" />
+    <link rel="stylesheet" href="/Assets/login.css" />
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  </head>
+  <header>
+    <img
+      class="logo"
+      src="/Assets/Img/Logo-Actualizado.svg"
+      alt="Logo de la pagina"
+    />
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="footer">Sobre Nosotros</a></li>
+        <li><a href="#">Viajes</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-theme" class="theme-button">
+      <i class="fas fa-sun" id="sun-icon"></i>
+      <i class="fas fa-moon" id="moon-icon"></i>
+    </button>
+  </header>
+  <body>
+    <section class="login">
+      <div class="form-box">
+        <div class="form-value">
+          <form action="">
+            <h2>Login</h2>
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="email" required />
+              <label for="">Email</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="password" required />
+              <label for="">Password</label>
+            </div>
+            <div class="forget">
+              <label for=""
+                ><input type="checkbox" />Recuerdame
+                <a href="#">Olvide mi contraseña</a></label
+              >
+            </div>
+            <button>Log in</button>
+            <div class="register">
+              <p>No tengo cuenta <a href="#">Registrarme</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="/pages/Modo-Oscuro-Claro/claro-oscuro.js"></script>
+  </body>
+</html>
