@@ -116,12 +116,21 @@ header.scrolled {
 #hero {
   height: 100vh;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)),
-    url(./Assets/Img/Hero.jpg);
+  /* background: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)),
+    url(./Assets/Img/Hero.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   color: #fff;
+}
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 .hero-container {
   width: 90%;
@@ -321,7 +330,7 @@ header.scrolled {
   visibility: hidden; /* <-- Agregado para ocultar la vista frontal durante la animación */
 }
 .card.flipped {
-  background-color: transparent; /* el background-color como transparente también cuando la tarjeta está girada */
+  background-color: transparent;
 }
 .card.flipped .card-back {
   display: block;
@@ -349,13 +358,37 @@ header.scrolled {
 }
 
 .bts-fil {
-  background: #2e2e2e;
+  background: transparent;
 
   /* width: 100%;
   display: flex;
   justify-content: center; */
 }
-/* ----ARROWS---- */
+.menu {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.boton-menu {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 15px;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  background: linear-gradient(to bottom, #6b6365, #0022ff);
+  box-shadow: #d3fbff 0px 0px 40px 0px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #e1e1e1;
+}
+.boton-menu:hover,
+.boton-menu:focus {
+  background: #807779;
+}
+.boton-menu:active {
+  background: #403b3d;
+}
 
 /* ------------------------------About US---------------------------- */
 /* ABOUT US */
@@ -394,33 +427,6 @@ header.scrolled {
 
 .show {
   display: flex;
-}
-
-/* -------- */
-.menu {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.boton-menu {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  padding: 10px 15px;
-  border: 1px solid #000000;
-  border-radius: 25px;
-  background: linear-gradient(to bottom, #6b6365, #0022ff);
-  box-shadow: #d3fbff 0px 0px 40px 0px;
-  font-size: 15px;
-  font-weight: 700;
-  color: #e1e1e1;
-}
-.boton-menu:hover,
-.boton-menu:focus {
-  background: #807779;
-}
-.boton-menu:active {
-  background: #403b3d;
 }
 
 /* ---------------------------------CONTACT-------------------------------- */
@@ -762,7 +768,7 @@ header.dark-mode {
 }
 
 /* ----------------------------- */
-.submenu {
+/* .submenu {
   display: none;
   position: absolute;
   background-color: white;
@@ -791,4 +797,4 @@ header.dark-mode {
 
 .submenu li a:hover {
   background-color: #f2f2f2;
-}
+} */
