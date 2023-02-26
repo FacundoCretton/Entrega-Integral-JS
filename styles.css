@@ -425,6 +425,24 @@ header.scrolled {
 
 /* ---------------------------------CONTACT-------------------------------- */
 
+.contact-intro {
+  text-align: center;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.contact-intro h2,
+p {
+  margin-bottom: 20px;
+}
+.contact-intro p {
+  border-bottom: 2px solid;
+  padding: 20px;
+}
+
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -569,8 +587,11 @@ header.scrolled {
 }
 
 .footer-left-fraction ul {
-  margin: 0;
+  margin: 0 0 0 20px;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .footer-left-fraction li {
