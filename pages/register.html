@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="/pages/Modo-Oscuro-Claro/claro-oscuro.css" />
+    <link rel="stylesheet" href="/Assets/register.css" />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  </head>
+  <header>
+    <img
+      class="logo"
+      src="/Assets/Img/Logo-Actualizado.svg"
+      alt="Logo de la pagina"
+    />
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="footer">Sobre Nosotros</a></li>
+        <li><a href="#">Viajes</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-theme" class="theme-button">
+      <i class="fas fa-sun" id="sun-icon"></i>
+      <i class="fas fa-moon" id="moon-icon"></i>
+    </button>
+  </header>
+  <body>
+    <section>
+      <div class="form-box">
+        <h2>Registro</h2>
+        <form>
+          <div class="input-row">
+            <div class="inputbox">
+              <input type="text" name="nombre" id="nombre" required />
+              <label for="nombre">Nombre</label>
+            </div>
+            <div class="inputbox">
+              <input type="text" name="apellido" id="apellido" required />
+              <label for="apellido">Apellido</label>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="inputbox">
+              <input type="tel" name="telefono" id="telefono" required />
+              <label for="telefono">Teléfono</label>
+            </div>
+            <div class="inputbox">
+              <input type="email" name="email" id="email" required />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="inputbox">
+              <input type="password" name="contrasena" id="contrasena" />
+              <label for="contrasena">Contraseña</label>
+            </div>
+            <div class="inputbox">
+              <input
+                type="password"
+                name="confirmar_contrasena"
+                id="confirmar_contrasena"
+              />
+              <label for="confirmar_contrasena">Confirmar contraseña</label>
+            </div>
+          </div>
+          <button type="submit">Registrarse</button>
+          <div class="register">
+            <p>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></p>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="/pages/Modo-Oscuro-Claro/claro-oscuro.js"></script>
+  </body>
+</html>
