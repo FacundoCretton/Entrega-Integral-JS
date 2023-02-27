@@ -37,8 +37,13 @@
     </header>
     <main>
       <section id="hero">
+        
         <video autoplay muted loop id="hero-video">
-          <source src="./Assets/Img/Video.webm" type="video/webm"></video>
+          <source src="./Assets/Img/Video.webm" type="video/webm" media="(min-width: 993px)">
+          <source src="./Assets/Img/Video-media-992x.webm" type="video/webm" media="(max-width: 992px)">
+          <source src="./Assets/Img/Video-media-576x.webm" type="video/webm" media="(max-width: 576px)">
+        </video>
+        
         <div class="hero-container">
           <div class="info">
             <h1>Descubre el mundo a bordo de nuestros cruceros</h1>
