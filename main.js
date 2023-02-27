@@ -291,8 +291,13 @@ const init =()=>{
 	barsMenu.addEventListener("click", closeOnClick);
 	window.addEventListener("scroll", closeOnScroll);
 	overlay.addEventListener("click", closeOnOverlayClick);
+  barsBtn.addEventListener("click", toggleMenu);
+ 
+
 }
 init();
+
+
 
 
 
