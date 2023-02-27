@@ -204,7 +204,10 @@ header.scrolled {
   flex-direction: column;
 }
 
-/* ------ */
+/* ----------------------------------------PRODUCTS---------------------------------------- */
+#products {
+  margin-bottom: 100px;
+}
 .card {
   width: 250px;
   height: 370px;
@@ -245,7 +248,8 @@ header.scrolled {
   background-size: cover;
   background-position: center;
   width: 100%;
-  color: #e6e6e6;
+  color: #6b0202;
+
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
 }
@@ -409,14 +413,19 @@ header.scrolled {
   background: url(Assets/Img/About-Us-Img.jpg) no-repeat left;
   background-size: 60%;
   overflow: hidden;
-  padding: 50px 0;
+  padding: 100px 0;
+  margin-bottom: 100px;
 }
 
 .about-container {
   width: 55%;
   float: right;
-  /* background-color: #fdfdfd; */
+  background-color: #fdfdfd;
   padding: 150px;
+  z-index: 1;
+}
+.dark .about-container {
+  background-color: #1e1e1e;
 }
 
 .about-container h2 {

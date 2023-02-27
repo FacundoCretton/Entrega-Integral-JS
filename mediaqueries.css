@@ -247,7 +247,7 @@
 /* Max-width 576px */
 @media (max-width: 576px) {
   .card {
-    width: 200px;
+    width: 230px;
     height: 320px;
   }
 
