@@ -231,14 +231,19 @@ function smoothScroll() {
 //   });
 // });
 // -----------------PRUEBA---------------
-const toggleMenu = () => {
-	barsMenu.classList.toggle("open-menu");
-	if (cartMenu.classList.contains("open-cart")) {
-		cartMenu.classList.remove("open-cart");
-		return;
-	}
-	overlay.classList.toggle("show-overlay");
+const toggleMenu = (event) => {
+  if (event.target.matches('[data-logo]') || event.target.closest('[data-logo]')) {
+    return;
+  }
+
+  barsMenu.classList.toggle("open-menu");
+  if (cartMenu.classList.contains("open-cart")) {
+    cartMenu.classList.remove("open-cart");
+    return;
+  }
+  overlay.classList.toggle("show-overlay");
 };
+
 
 const toggleCart = () => {
 	cartMenu.classList.toggle("open-cart");
@@ -295,7 +300,9 @@ const init =()=>{
 	window.addEventListener("scroll", closeOnScroll);
 	overlay.addEventListener("click", closeOnOverlayClick);
   barsBtn.addEventListener("click", toggleMenu);
- 
+  barsBtn.addEventListener('click', event => {
+    event.preventDefault();
+  });
 
 }
 init();
