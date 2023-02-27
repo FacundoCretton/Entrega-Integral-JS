@@ -592,8 +592,9 @@ p {
 /* FOOTER */
 .footer {
   background-color: #333;
+  border-top: 1px solid #fff;
   color: #fff;
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
 }
 .footer-container {
@@ -714,7 +715,6 @@ p {
 .footer-links ul {
   margin: 0;
   padding: 0;
-  /* grid-column: 1 / span 1; */
 }
 
 .footer-links li {
