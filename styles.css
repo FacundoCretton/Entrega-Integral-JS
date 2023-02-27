@@ -526,7 +526,6 @@ p {
 
 .form-group {
   display: flex;
-  /* flex-wrap: wrap; */
   margin-bottom: 20px;
 }
 
@@ -845,7 +844,7 @@ header.dark-mode {
   top: 65px;
   right: 0;
   padding: 50px 30px;
-  background: linear-gradient(to top, #121e3c, var(--background));
+  background: linear-gradient(to top, #121e3c, red);
   border-left: 1px solid var(--nav-bg);
   display: flex;
   flex-direction: column;

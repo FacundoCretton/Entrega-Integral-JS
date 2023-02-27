@@ -136,7 +136,11 @@
     font-size: 14px;
   }
 }
-
+@media (max-width: 400px) {
+  #contact {
+    overflow-x: hidden;
+  }
+}
 /* ------------Footer---- */
 /* Responsive Design - adaptable a dispositivos moviles*/
 
