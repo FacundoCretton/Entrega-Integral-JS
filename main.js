@@ -209,9 +209,13 @@ function smoothScroll() {
 
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
-      // event.preventDefault();
       const href = link.getAttribute('href');
       const offsetTop = document.querySelector(href).offsetTop;
+      if (href === "/pages/login.html") {
+        // no prevenimos el comportamiento predeterminado del enlace
+        return;
+      }
+      event.preventDefault();
       window.scrollTo({
         top: offsetTop - 60,
         behavior: 'smooth'
