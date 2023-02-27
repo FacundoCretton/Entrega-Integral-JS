@@ -7,21 +7,24 @@
     <title>Registro</title>
     <link rel="stylesheet" href="/pages/Modo-Oscuro-Claro/claro-oscuro.css" />
     <link rel="stylesheet" href="/Assets/register.css" />
+    <link rel="stylesheet" href="/mediaqueries.css" />
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
   </head>
   <header>
-    <img
-      class="logo"
-      src="/Assets/Img/Logo-Actualizado.svg"
-      alt="Logo de la pagina"
-    />
+    <a href="/index.html">
+      <img class="logo" src="/Assets/Img/Logo-Actualizado.svg" alt="Logo de la
+      pagina"
+    </a>
     <nav class="navbar">
+      <div class="menu-label">
+        <i class="fa-solid fa-bars"></i>
+      </div>
       <ul class="navbar-list">
-        <li><a href="#">Home</a></li>
-        <li><a href="footer">Sobre Nosotros</a></li>
-        <li><a href="#">Viajes</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/index.html#about-us">Sobre Nosotros</a></li>
+        <li><a href="/index.html#products">Viajes</a></li>
+        <li><a href="/index.html#contact">Contacto</a></li>
       </ul>
     </nav>
     <button id="toggle-theme" class="theme-button">
@@ -70,11 +73,15 @@
           </div>
           <button type="submit">Registrarse</button>
           <div class="register">
-            <p>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></p>
+            <p>
+              ¿Ya tienes una cuenta?
+              <a href="/pages/login.html">Iniciar sesión</a>
+            </p>
           </div>
         </form>
       </div>
     </section>
     <script src="/pages/Modo-Oscuro-Claro/claro-oscuro.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>

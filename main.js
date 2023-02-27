@@ -206,11 +206,10 @@ toggleTheme = () => {
 }
 // ------------------Smooth Scroll----------------
 function smoothScroll() {
-  // Selecciona todos los enlaces de la navbar
 
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
-      event.preventDefault();
+      // event.preventDefault();
       const href = link.getAttribute('href');
       const offsetTop = document.querySelector(href).offsetTop;
       window.scrollTo({

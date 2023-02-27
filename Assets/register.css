@@ -243,3 +243,7 @@ form {
 .input-row .inputbox:first-child {
   margin-right: 30px;
 } */
+
+.menu-label {
+  display: none;
+}
