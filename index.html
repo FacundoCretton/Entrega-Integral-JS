@@ -56,39 +56,25 @@
       <!-- ----Productos---- -->
 
       <section id="products">
-        <nav class=" bts-fil">
-          <ul class="menu">
-            <li>
-              <button id="todos" class="boton-menu boton-categoria active" > Todos</button>
-            </li>
-            <li>
-              <button id="Sudamerica" class="boton-menu boton-categoria" data-categoria="Sudamerica"><img class ="btn-ico "src="/Assets/Img/Iconos botones/South_America.ico"> Sudamerica
-                <!-- <ul class="submenu">
-                  <li><a href="#" class="filtro-precio-mayor">Filtrar por precio Mayor</a></li>
-                  <li><a href="#" class="filtro-precio-menor">Filtrar por precio Menor</a></li>
-                  <li><a href="#" class="filtro-duracion-mayor">Filtrar por duración Mayor</a></li>              
-                  <li><a href="#" class="filtro-duracion-menor">Filtrar por duración Menor</a></li>
-                </ul> -->
-              </button>
-            </li>
-            <li>
-              <button id="Europa" class="boton-menu boton-categoria" data-categoria="Europa"><img class ="btn-ico " src="/Assets/Img/Iconos botones/Europe.ico"> Europa
-                <!-- <ul class="submenu">
-                  <li><a href="#" class="filtro-precio">Filtrar por precio</a></li>
-                  <li><a href="#" class="filtro-duracion">Filtrar por duración</a></li>
-                </ul> -->
-              </button>
-            </li>
-            <li>
-              <button id="Caribe" class="boton-menu boton-categoria" data-categoria="Caribe"><img class="btn-ico" src="/Assets/Img/Iconos botones/Central_America_.ico"> Caribe
-                <!-- <ul class="submenu">
-                  <li><a href="#" class="filtro-precio">Filtrar por precio</a></li>
-                  <li><a href="#" class="filtro-duracion">Filtrar por duración</a></li>
-                </ul> -->
-              </button>
-            </li>
+        <!-- <input type="checkbox" id="categories-toggle" class="categories-toggle">
+        <label for="categories-toggle" class="categories-label">
+          Categorías
+        </label>
+        <input type="checkbox" id="categories-toggle" class="categories-toggle"> -->
+        <nav class="bts-fil">
+          <label for="categories-toggle" class="categories-label">
+           <span class="span-label"> Categorías</span>
+          </label>
+          <input type="checkbox" id="categories-toggle" class="categories-toggle">
+ 
+          <ul class="categories-menu">
+            <li><button id="todos" class="boton-menu boton-categoria active">Todos</button></li>
+            <li><button id="Sudamerica" class="boton-menu boton-categoria" data-categoria="Sudamerica"><img class ="btn-ico" src="/Assets/Img/Iconos botones/South_America.ico"> Sudamerica</button></li>
+            <li><button id="Europa" class="boton-menu boton-categoria" data-categoria="Europa"><img class ="btn-ico" src="/Assets/Img/Iconos botones/Europe.ico"> Europa</button></li>
+            <li><button id="Caribe" class="boton-menu boton-categoria" data-categoria="Caribe"><img class="btn-ico" src="/Assets/Img/Iconos botones/Central_America_.ico"> Caribe</button></li>
           </ul>
         </nav>
+        
         <div class="product-container">
 
         </div>

@@ -394,7 +394,15 @@ header.scrolled {
 .boton-menu:active {
   background: #403b3d;
 }
+.categories-menu {
+  display: flex;
+  gap: 10px;
+}
 
+#categories-toggle,
+.categories-label {
+  display: none;
+}
 /* ------------------------------About US---------------------------- */
 /* ABOUT US */
 #about-us {
@@ -803,3 +811,65 @@ header.dark-mode {
 .submenu li a:hover {
   background-color: #f2f2f2;
 } */
+
+@media (max-width: 992px) {
+  .categories-menu {
+    right: 5%;
+    width: 90%;
+    border-top: 0px;
+    border-radius: 0px 0px 10px 10px;
+    align-items: center;
+    gap: 25px;
+    z-index: 1;
+    display: none;
+    position: absolute;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    /* margin: 0; */
+  }
+  .categories-toggle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .categories-label {
+    display: block;
+    cursor: pointer;
+    order: 2;
+  }
+  .bts-fil {
+    position: relative;
+  }
+
+  .span-label {
+    height: 50px;
+    width: 55px;
+    /* margin-left: 350px; */
+  }
+
+  #categories-toggle:checked + .categories-menu {
+    display: flex;
+  }
+
+  .categories-menu li {
+    display: block;
+  }
+  .categories-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .btn-ico {
+    display: none;
+  }
+  .bts-fil ul {
+    display: none;
+  }
+}
