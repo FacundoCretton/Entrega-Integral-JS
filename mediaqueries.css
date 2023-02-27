@@ -26,9 +26,10 @@
 @media (max-width: 992px) {
   .navbar {
     gap: 10px;
+    display: contents;
   }
   .navbar-list {
-    top: 50px;
+    top: 60px;
     left: 5%;
     right: 5%;
     width: 90%;
@@ -193,6 +194,12 @@
   }
   #hero-video {
     object-position: 50% 30%;
+  }
+  .hero-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
   }
 }
 
