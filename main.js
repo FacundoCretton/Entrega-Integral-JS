@@ -232,7 +232,6 @@ function smoothScroll() {
 // });
 // -----------------PRUEBA---------------
 const toggleMenu = (event) => {
-  console.log("Toggle menu");
   if (event.target.matches('[data-logo]') || event.target.closest('[data-logo]')) {
     return;
   }
@@ -245,27 +244,6 @@ const toggleMenu = (event) => {
   overlay.classList.toggle("show-overlay");
 };
 
-barsBtn.addEventListener("click", (event) => {
-  event.stopPropagation();
-  setTimeout(() => {
-    toggleMenu(event);
-  }, 100);
-});
-
-document.addEventListener("click", (event) => {
-  console.log("doble click");
-  if (
-    event.target !== barsBtn &&
-    !barsMenu.contains(event.target) &&
-    !cartMenu.contains(event.target)
-  ) {
-    barsMenu.classList.remove("open-menu");
-    cartMenu.classList.remove("open-cart");
-    overlay.classList.remove("show-overlay");
-  }
-});
-
-// ----------------------
 
 const toggleCart = () => {
 	cartMenu.classList.toggle("open-cart");
@@ -321,15 +299,13 @@ const init =()=>{
 	barsMenu.addEventListener("click", closeOnClick);
 	window.addEventListener("scroll", closeOnScroll);
 	overlay.addEventListener("click", closeOnOverlayClick);
-  // barsBtn.addEventListener("click", toggleMenu);
+  barsBtn.addEventListener("click", toggleMenu);
   barsBtn.addEventListener('click', event => {
     event.preventDefault();
   });
 
 }
 init();
-
-
 
 
 

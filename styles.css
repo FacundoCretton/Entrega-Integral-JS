@@ -77,7 +77,7 @@ header {
   transition: transform 0.3s ease-in-out;
 }
 .navbar-list a:hover {
-  color: #f97bbf;
+  color: #e6e603;
 }
 .navbar-list a:hover::before {
   transform: scaleX(1);
