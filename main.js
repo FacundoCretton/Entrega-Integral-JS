@@ -29,6 +29,8 @@ const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal");
 //  Modal de agregado al carrito.
 const deleteBtn = document.querySelector(".btn-delete");
+const productsCart = document.querySelector (".cart-container")
+const total = document.querySelector (".total")
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -58,14 +60,15 @@ const renderProduct = (product) => {
           <p>Duracion</p> 
           <span>${duracion} noches</span> 
         </div>
+
         <div class="product-bot">
           <div class="btn-flip">
             <button class="btn-buy" 
             data-id="${id}"
-            data-name="${nombre}"
-            data-bid="${precio}"
+            data-nombre="${nombre}"
+            data-precio="${precio}"
             data-img="${backgroundImg}">Add</button>
-            <div class="flip-icon"><i class="fas fa-arrow-circle-right"></i></div>
+          <div class="flip-icon"><i class="fas fa-arrow-circle-right"></i></div>
           </div>                  
         </div>
       </div>
@@ -280,7 +283,192 @@ const closeOnOverlayClick = () => {
 	overlay.classList.remove("show-overlay");
 };
 
+// ---------------------------MAS PRUEBAS-------------------
 
+const renderCardProduct = (cartProduct) => {
+  const { id, nombre, precio, duracion, backgroundImg, quantity } = cartProduct;
+  return `
+  <div class="cart-item">
+    <img src= ${backgroundImg} alt="paquete de viaje en carrito">
+    <div class="item-info">
+      <h3 class="item-tittle">${nombre}</h3>
+      <p class="item-duracion">${duracion}</p>
+      <span class="item-price">💲${precio}</span>
+    </div>
+    <div class="item-handler">
+      <span class="quantity-handler down" data-id=${id}>-</span>
+      <span class="item-quantity">${quantity}</span>
+      <span class="quantity-handler up" data-id=${id}>+</span>
+    </div>
+  </div>
+  `;
+};
+
+const renderCart = () => {
+  if (!cart.length) {
+    productsCart.innerHTML = `
+    <p class="empty-msg">No hay productos en el carrito.</p>`;
+    return;
+  }
+  productsCart.innerHTML = cart.map(renderCardProduct).join("");
+};
+const getCartTotal = () => {
+  return cart.reduce((acc, cur) => {
+    return acc + Number(cur.precio) * cur.quantity; // Number es para evitar que llegue un string
+  }, 0);
+};
+
+const showTotal = () => {
+  total.innerHTML = `${getCartTotal()}`;
+};
+
+const renderCartBubble = () => {
+  cartBubble.textContent = cart.reduce((acc, cur) => {
+    return acc + Number (cur.precio) * cur.quantity; 
+
+  }, 0);
+};
+const disableBtn = (btn) => {
+  if (!cart.length) {
+    btn.classList.add("disabled");
+  } else {
+    btn.classList.remove("disabled");
+  }
+};
+
+const checkCartState = () => {
+  saveLocalStorage(cart);
+  renderCart();
+  showTotal();
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble();
+};
+
+const addProduct = (e) => {
+  if (!e.target.classList.contains("btn-buy")) {
+    return;
+  }
+  const { id, nombre, precio, duracion, backgroundImg } = e.target.dataset;
+
+  const product = productdata(id, nombre, precio, duracion, backgroundImg);
+  if (isExistingCartProduct(product)) {
+    addUnitToProduct(product);
+    showSuccessModal("Se agregó una unidad del producto al carrito");
+  } else {
+    createCartProduct(product);
+    showSuccessModal("El producto se ha agregado al carrito con exito");
+  }
+
+  checkCartState();
+};
+const productdata = (id, nombre, precio, duracion, backgroundImg) => {
+  return { id, nombre, precio, duracion, backgroundImg };
+};
+
+const isExistingCartProduct = (product) => {
+  return cart.find((item) => {
+    return item.id === product.id;
+  });
+};
+
+const addUnitToProduct = (product) => {
+  cart = cart.map((cartProduct) => {
+    return cartProduct.id === product.id
+      ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
+      : cartProduct;
+  });
+};
+
+const showSuccessModal = (msg) => {
+  successModal.classList.add("active-modal");
+  successModal.textContent = msg;
+  setTimeout(() => {
+    successModal.classList.remove("active-modal");
+  }, 1500);
+};
+
+const createCartProduct = (product) => {
+  cart = [
+    ...cart,
+    {
+      ...product,
+      quantity: 1,
+    },
+  ];
+};
+
+const handleMinusBtnEvent = (id) => {
+  const existingCartProduct = cart.find((item) => {
+    return item.id === id;
+  });
+
+  if (existingCartProduct.quantity === 1) {
+    if (window.confirm("¿Desea eliminar el producto del carrito?")) {
+      removeProductFromCart(existingCartProduct);
+    }
+    return;
+  }
+
+  substractProductUnit(existingCartProduct);
+};
+
+const removeProductFromCart = (existingProduct) => {
+  cart = cart.filter((product) => product.id !== existingProduct.id);
+  checkCartState();
+};
+
+const substractProductUnit = (existingProduct) => {
+  cart = cart.map((product) => {
+    return product.id === existingProduct.id
+      ? { ...product, quantity: Number(product.quantity) - 1 }
+      : product;
+  });
+};
+
+const handleplusBtnEvent = (id) => {
+  const existingCartProduct = cart.find((item) => {
+    return item.id === id;
+  });
+  addUnitToProduct(existingCartProduct);
+};
+
+const handleQuantity = (e) => {
+  if (e.target.classList.contains("down")) {
+    handleMinusBtnEvent(e.target.dataset.id);
+  } else if (e.target.classList.contains("up")) {
+    handleplusBtnEvent(e.target.dataset.id);
+  }
+  checkCartState();
+};
+
+const resetCartItems = () => {
+  cart = [];
+  checkCartState();
+};
+
+const completeCartAction = (confirmMsg, successMsg) => {
+  if (!cart.length) return;
+  if (window.confirm(confirmMsg)) {
+    resetCartItems();
+    alert(successMsg);
+  }
+};
+const completeBuy = () => {
+  completeCartAction(
+    "¿desea comprar lo que hay en el carrito?",
+    "¡Gracias por su compra!"
+  );
+};
+const deleteCart = () => {
+  completeCartAction(
+    "¿Desea eliminar el carrito?",
+    "El carrito se elimino perfectamente"
+  );
+};
+
+
+// ---------------------------------------------------------
 
 
 const init =()=>{
@@ -303,6 +491,18 @@ const init =()=>{
   barsBtn.addEventListener('click', event => {
     event.preventDefault();
   });
+
+  // ------
+  document.addEventListener("DOMContentLoaded", renderCart);
+  document.addEventListener("DOMContentLoaded", showTotal);
+  document.addEventListener("DOMContentLoaded", renderCartBubble);
+  products.addEventListener("click", addProduct);
+  productsCart.addEventListener("click", handleQuantity);
+  buyBtn.addEventListener("click", completeBuy);
+  deleteBtn.addEventListener("click", deleteCart);
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  
 
 }
 init();

@@ -45,7 +45,7 @@ header {
   gap: 120px;
 }
 .navbar-list {
-  gap: 100px;
+  gap: 50px;
 }
 
 .navbar-list li {
@@ -359,10 +359,11 @@ header.scrolled {
   border: none;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  background: #ff0a78;
+  background: linear-gradient(to bottom, #6b6365, #0022ff);
 }
 .btn-load:hover {
-  background-color: #ff6392;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to top, #6b6365, #0022ff);
 }
 
 .bts-fil {
@@ -568,9 +569,10 @@ p {
 }
 
 .form-control button {
-  background-color: #008cba;
+  background-color: #fff;
+  color: #333;
   padding: 10px 0;
-  border: none;
+  border: 1px solid black;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
@@ -585,7 +587,16 @@ p {
 }
 
 .form-control button:hover {
-  background-color: #005b79;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.dark .form-control button {
+}
+.dark .form-control button:hover {
+  background-color: #fff;
+  color: #fff;
+  border: 1px solid;
 }
 
 /* ----------------------------------------FOOTER---------------------------------------- */
@@ -629,7 +640,7 @@ p {
 }
 
 .footer-left-fraction li i {
-  font-size: 20px;
+  font-size: 10px;
   margin-right: 10px;
 }
 
@@ -989,4 +1000,18 @@ header.dark-mode {
 .empty-msg {
   color: #121e3c;
   font-size: 14px;
+}
+
+.disabled {
+  background-color: #00ff00;
+  color: white;
+  cursor: not-allowed;
+  border: none;
+}
+
+.disabled:hover {
+  background-color: #00ff00;
+  color: white;
+  cursor: not-allowed;
+  border: none;
 }

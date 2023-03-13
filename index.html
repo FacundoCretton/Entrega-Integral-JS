@@ -8,7 +8,7 @@
     <link rel="icon" href="/assets/Img/Logo-Actualizado.svg" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/mediaqueries.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"> 
   </head>
   <body>
     <header>
@@ -26,6 +26,10 @@
           <li><a href="#products">Viajes</a></li>
           <li><a href="#contact">Contacto</a></li>
           <li><a href="/pages/login.html">Iniciar Sesion</a></li>
+          <li>      <button id="toggle-theme" class="theme-button">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon"></i>
+          </button></li>
         </ul>
       </nav>
       <div class="cart-label">
@@ -43,6 +47,7 @@
 
         <div class="cart-total">
           <p>Total:</p>
+          <span class="total"></span>
           
         </div>
         <button class="btn-buy">Comprar</button>
@@ -50,10 +55,7 @@
       </div>
 
       <div class="overlay"></div>
-      <button id="toggle-theme" class="theme-button">
-        <i class="fas fa-sun" id="sun-icon"></i>
-        <i class="fas fa-moon" id="moon-icon"></i>
-      </button>
+
     </header>
     <main>
       <section id="hero">
@@ -222,7 +224,7 @@
     
     
     
-    
+    <div class="add-modal"></div>
     <script src="/data.js"></script>
     <script src="/main.js"></script>
   </body>
