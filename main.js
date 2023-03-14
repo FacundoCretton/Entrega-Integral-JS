@@ -293,7 +293,7 @@ const renderCardProduct = (cartProduct) => {
     <img src= ${backgroundImg} alt="paquete de viaje en carrito">
     <div class="item-info">
       <h3 class="item-tittle">${nombre}</h3>
-      <p class="item-duracion">${duracion}</p>
+      <p class="item-duracion">${duracion} noches</p>
       <span class="item-precio">$${precio}</span>
     </div>
     <div class="item-handler">
