@@ -339,3 +339,45 @@
     display: none;
   }
 }
+
+@media (max-width: 540px) {
+  .cart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 16px;
+    background-color: #ffffff;
+    box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+  }
+
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .cart-item {
+    margin-bottom: 16px;
+  }
+
+  .cart-item-img {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .cart .item-title {
+    font-size: 16px;
+  }
+
+  .cart .item-precio,
+  .item-duracion {
+    font-size: 14px;
+  }
+
+  .cart .total {
+    margin-top: 16px;
+    font-size: 16px;
+    text-align: center;
+  }
+}
