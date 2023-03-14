@@ -67,6 +67,7 @@ const renderProduct = (product) => {
             data-id="${id}"
             data-nombre="${nombre}"
             data-precio="${precio}"
+            data-duracion="${duracion}"
             data-img="${backgroundImg}">Add</button>
           <div class="flip-icon"><i class="fas fa-arrow-circle-right"></i></div>
           </div>                  
@@ -293,7 +294,7 @@ const renderCardProduct = (cartProduct) => {
     <div class="item-info">
       <h3 class="item-tittle">${nombre}</h3>
       <p class="item-duracion">${duracion}</p>
-      <span class="item-price">💲${precio}</span>
+      <span class="item-precio">$${precio}</span>
     </div>
     <div class="item-handler">
       <span class="quantity-handler down" data-id=${id}>-</span>
@@ -324,9 +325,9 @@ const showTotal = () => {
 
 const renderCartBubble = () => {
   cartBubble.textContent = cart.reduce((acc, cur) => {
-    return acc + Number (cur.precio) * cur.quantity; 
-
+    return acc + cur.quantity; 
   }, 0);
+  
 };
 const disableBtn = (btn) => {
   if (!cart.length) {
