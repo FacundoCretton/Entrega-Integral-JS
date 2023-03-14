@@ -287,10 +287,10 @@ const closeOnOverlayClick = () => {
 // ---------------------------MAS PRUEBAS-------------------
 
 const renderCardProduct = (cartProduct) => {
-  const { id, nombre, precio, duracion, backgroundImg, quantity } = cartProduct;
+  const { id, nombre, precio, duracion, img, quantity } = cartProduct;
   return `
   <div class="cart-item">
-    <img src= ${backgroundImg} alt="paquete de viaje en carrito">
+    <img src= ${img} alt="paquete de viaje en carrito">
     <div class="item-info">
       <h3 class="item-tittle">${nombre}</h3>
       <p class="item-duracion">${duracion} noches</p>
@@ -350,9 +350,9 @@ const addProduct = (e) => {
   if (!e.target.classList.contains("btn-buy")) {
     return;
   }
-  const { id, nombre, precio, duracion, backgroundImg } = e.target.dataset;
+  const { id, nombre, precio, duracion, img } = e.target.dataset;
 
-  const product = productdata(id, nombre, precio, duracion, backgroundImg);
+  const product = productdata(id, nombre, precio, duracion, img);
   if (isExistingCartProduct(product)) {
     addUnitToProduct(product);
     showSuccessModal("Se agregó una unidad del producto al carrito");
@@ -363,8 +363,8 @@ const addProduct = (e) => {
 
   checkCartState();
 };
-const productdata = (id, nombre, precio, duracion, backgroundImg) => {
-  return { id, nombre, precio, duracion, backgroundImg };
+const productdata = (id, nombre, precio, duracion, img) => {
+  return { id, nombre, precio, duracion, img };
 };
 
 const isExistingCartProduct = (product) => {
