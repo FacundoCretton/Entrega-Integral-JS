@@ -37,7 +37,7 @@
 	},
 	{
 		id: 5,
-		nombre: 'Descubriendo Colombia y Perú',
+		nombre: 'Colombia y Perú',
 		precio: 620,
 		duracion: 9,
 		itinerario: ['Día 1: Buenos Aires, Argentina', 'Día 2: Navegación', 'Día 3: Cartagena de Indias, Colombia', 'Día 4: Santa Marta, Colombia', 'Día 5: Trujillo, Perú', 'Día 6: Lima, Perú', 'Día 7: Pisco, Perú', 'Día 8: Navegación', 'Día 9: Montevideo, Uruguay'],

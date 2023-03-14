@@ -63,12 +63,12 @@ const renderProduct = (product) => {
 
         <div class="product-bot">
           <div class="btn-flip">
-            <button class="btn-buy" 
+            <button class="btn-add" 
             data-id="${id}"
             data-nombre="${nombre}"
             data-precio="${precio}"
             data-duracion="${duracion}"
-            data-img="${backgroundImg}">Add</button>
+            data-img="${backgroundImg}">Comprar</button>
           <div class="flip-icon"><i class="fas fa-arrow-circle-right"></i></div>
           </div>                  
         </div>
@@ -299,6 +299,7 @@ const renderCardProduct = (cartProduct) => {
     <div class="item-handler">
       <span class="quantity-handler down" data-id=${id}>-</span>
       <span class="item-quantity">${quantity}</span>
+
       <span class="quantity-handler up" data-id=${id}>+</span>
     </div>
   </div>
@@ -320,7 +321,7 @@ const getCartTotal = () => {
 };
 
 const showTotal = () => {
-  total.innerHTML = `${getCartTotal()}`;
+  total.innerHTML = `$${getCartTotal()}`;
 };
 
 const renderCartBubble = () => {
@@ -347,7 +348,7 @@ const checkCartState = () => {
 };
 
 const addProduct = (e) => {
-  if (!e.target.classList.contains("btn-buy")) {
+  if (!e.target.classList.contains("btn-add")) {
     return;
   }
   const { id, nombre, precio, duracion, img } = e.target.dataset;
@@ -435,13 +436,14 @@ const handleplusBtnEvent = (id) => {
 };
 
 const handleQuantity = (e) => {
-  if (e.target.classList.contains("down")) {
-    handleMinusBtnEvent(e.target.dataset.id);
-  } else if (e.target.classList.contains("up")) {
-    handleplusBtnEvent(e.target.dataset.id);
-  }
-  checkCartState();
+   if (e.target.classList.contains("down")) {
+     handleMinusBtnEvent(e.target.dataset.id);
+   } else if (e.target.classList.contains("up")) {
+     handleplusBtnEvent(e.target.dataset.id);
+   }
+   checkCartState();
 };
+
 
 const resetCartItems = () => {
   cart = [];
@@ -503,10 +505,12 @@ const init =()=>{
   deleteBtn.addEventListener("click", deleteCart);
   disableBtn(buyBtn);
   disableBtn(deleteBtn);
-  
+  updateProductQuantity()
 
 }
 init();
+
+
 
 
 

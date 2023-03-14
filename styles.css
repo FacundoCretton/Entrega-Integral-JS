@@ -254,11 +254,11 @@ header.scrolled {
   border-top-left-radius: 15px;
 }
 
-.btn-buy {
+.btn-add {
   cursor: pointer;
   padding: 10px 35px;
   color: #e1e1e1;
-  background: #2e2e2e;
+  background: #0a0a6a;
   border-radius: 10px;
   border: none;
   margin: 20px;
@@ -296,6 +296,7 @@ header.scrolled {
 .flip-icon {
   font-size: 1.5rem;
   cursor: pointer;
+  color: #0a0a6a;
 }
 .btn-flip {
   display: flex;
@@ -910,15 +911,17 @@ header.dark-mode {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: #2323234e;
+  background: linear-gradient(#2e2e2e, #0c4961);
   padding: 20px;
-  border: 1px solid blue;
+  border: 1px solid #e1e1e1;
   border-radius: 10px;
 }
 
 .cart-item img {
   height: 65px;
   width: 65px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
 }
 
 .item-info {
@@ -928,24 +931,18 @@ header.dark-mode {
 }
 
 .item-title {
-  color: green;
   font-weight: 600;
   font-size: 14px;
 }
 
-.item-bid {
-  color: var(--text-gray);
-  font-weight: 300;
+.item-duracion,
+.item-precio {
+  color: #e1e1e1;
   font-size: 12px;
-}
-
-.item-price {
-  background: linear-gradient(to right, #30cfd0, #c43ad6);
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
-  font-size: 16px;
   font-weight: 800;
+}
+.item-duracion {
+  padding-top: 15px;
 }
 
 .item-handler {
@@ -953,6 +950,8 @@ header.dark-mode {
   align-items: center;
   justify-content: center;
   gap: 20px;
+  border: 1.5px solid #e1e1e1;
+  border-radius: 5px;
 }
 
 .quantity-handler {
@@ -960,22 +959,14 @@ header.dark-mode {
   justify-content: center;
   align-items: center;
   padding: 2px 8px;
-  border-radius: 5px;
-  color: var(--text-white);
+  color: #1e1e1e;
   font-weight: 400;
-}
-
-.item-quantity {
-  color: var(--text-gray);
-}
-
-.up {
-  border: 1px solid pink;
+  background-color: #e1e1e1;
+  cursor: pointer;
 }
 
 .down {
-  background-color: orange;
-  border: 1px solid orangered;
+  background-color: #9e9c9c;
 }
 
 .divider {
@@ -1014,14 +1005,14 @@ header.dark-mode {
 }
 
 .disabled {
-  background-color: #00ff00;
+  background-color: #393f39;
   color: white;
   cursor: not-allowed;
   border: none;
 }
 
 .disabled:hover {
-  background-color: #00ff00;
+  background-color: #15151c;
   color: white;
   cursor: not-allowed;
   border: none;
@@ -1031,8 +1022,19 @@ header.dark-mode {
   cursor: pointer;
   padding: 10px 35px;
   color: #e1e1e1;
-  background: #2e2e2e;
+  background: #ce0606;
   border-radius: 10px;
   border: none;
-  margin: 20px;
+  width: 150px;
+  align-items: center;
+}
+
+.btn-buy {
+  cursor: pointer;
+  padding: 10px 35px;
+  color: #e1e1e1;
+  background: #0a0a6a;
+  border-radius: 10px;
+  border: none;
+  width: 150px;
 }
