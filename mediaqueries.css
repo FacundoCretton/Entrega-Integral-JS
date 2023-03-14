@@ -386,4 +386,10 @@
   .btn-delete {
     margin-right: 30px;
   }
+  .btns-cart {
+    width: 80%;
+  }
+  .divider {
+    width: 80%;
+  }
 }
