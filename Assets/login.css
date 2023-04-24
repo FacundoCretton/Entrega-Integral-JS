@@ -104,9 +104,9 @@ input:valid ~ label {
   margin-right: 3px;
 }
 
-.forget label a:hover {
-  text-decoration: underline;
-  color: #fff;
+.forget label a:hover,
+.register a:hover {
+  color: #c55f5f;
 }
 button {
   width: 100%;
@@ -136,7 +136,8 @@ button:hover {
 }
 .register a,
 .forget a {
-  color: #088c8e;
+  color: #8e0808;
+  font-weight: 600;
 }
 .register p a:hover {
   text-decoration: underline;
@@ -146,4 +147,4 @@ button:hover {
   .form-box {
     max-width: 400px;
   }
-} ;
+}

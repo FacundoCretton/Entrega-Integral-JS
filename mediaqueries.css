@@ -1,29 +1,5 @@
-@media screen and (max-width: 1200px) {
-  .about-container {
-    padding: 80px;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  #about-us {
-    background-size: 100%;
-    padding: 100px 40px;
-  }
-  .about-container {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  #about-us {
-    padding: 0;
-  }
-  .about-container {
-    padding: 60px;
-  }
-}
-/* ------------Navbar------------- */
 @media (max-width: 992px) {
+  /* ------------Navbar------------- */
   .navbar {
     gap: 10px;
     display: contents;
@@ -67,121 +43,7 @@
   .open-menu {
     display: flex;
   }
-}
-
-/* ------------Contact------------- */
-@media (max-width: 992px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "map"
-      "direct"
-      "form";
-    gap: 10px;
-  }
-  .contact-map iframe {
-    /* margin-right: 20px; */
-    width: 80%;
-    height: 200px;
-    margin: 0 40px 20px;
-  }
-  .contact-direct {
-    padding: 1em;
-    border-radius: 5px;
-    border: 2px solid;
-    width: 80%;
-    margin: 40px;
-  }
-
-  .contact-direct-item {
-    margin: 10px 0;
-    text-align: center;
-  }
-
-  .contact-direct-title {
-    margin-bottom: 5px;
-  }
-
-  .form-control input,
-  .form-item-full textarea {
-    width: 80%;
-    margin: 0 40px;
-  }
-  .form-control input {
-    width: 60%;
-  }
-
-  .form-control button {
-    max-width: none;
-    width: 60%;
-  }
-}
-
-@media (max-width: 576px) {
-  .contact-direct {
-    font-size: 14px;
-  }
-
-  .contact-direct-title {
-    font-size: 14px;
-  }
-
-  .contact-direct-text {
-    font-size: 12px;
-  }
-
-  .form-control label {
-    font-size: 14px;
-  }
-
-  .form-control input,
-  .form-item-full textarea {
-    font-size: 14px;
-  }
-
-  .form-control button {
-    font-size: 14px;
-  }
-}
-@media (max-width: 400px) {
-  #contact {
-    overflow-x: hidden;
-  }
-}
-/* ------------Footer---- */
-/* Responsive Design - adaptable a dispositivos moviles*/
-
-@media (max-width: 992px) {
-  .footer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .footer-logo,
-  .footer-redes-sociales-container,
-  .footer-links {
-    margin: 20px 0;
-  }
-  .footer-left-fraction {
-    display: none;
-  }
-}
-
-@media (max-width: 576px) {
-  .footer-redes-sociales-container i {
-    margin: 10px;
-    width: 25px;
-    height: 25px;
-  }
-  .footer-links li {
-    margin-bottom: 5px;
-  }
-  .footer-links a {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 992px) {
+  /* ----------------------HERO--------------------- */
   #hero {
     height: auto;
     min-height: 100vh;
@@ -212,32 +74,7 @@
     text-align: center;
     margin-top: 200px;
   }
-}
-
-@media (max-width: 576px) {
-  #hero .info h1 {
-    font-size: 24px;
-    margin-bottom: 0.5rem;
-  }
-  #hero .info h2 {
-    font-size: 18px;
-    margin-bottom: 0.5rem;
-  }
-  #hero .info p {
-    font-size: 16px;
-    max-width: 90%;
-  }
-  #hero .info button {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-  #hero-video {
-    object-position: 50% 10%;
-  }
-}
-
-/* Max-width 992px */
-@media (max-width: 992px) {
+  /* -------------------PRODUCTOS------------------- */
   #products {
     padding: 20px 0;
   }
@@ -249,29 +86,6 @@
   .card-container {
     margin-top: 20px;
   }
-}
-
-/* Max-width 576px */
-@media (max-width: 576px) {
-  .card {
-    width: 230px;
-    height: 320px;
-  }
-
-  .product-card-image {
-    padding: 20px 0px;
-  }
-
-  .product-name {
-    font-size: 16px;
-  }
-
-  .product-price,
-  .product-duration {
-    padding: 10px;
-  }
-}
-@media (max-width: 992px) {
   .categories-menu {
     right: 5%;
     width: 90%;
@@ -312,7 +126,6 @@
   .span-label {
     height: 50px;
     width: 55px;
-    /* margin-left: 350px; */
   }
 
   #categories-toggle:checked + .categories-menu {
@@ -325,7 +138,6 @@
   .categories-menu button {
     display: block;
     width: 100%;
-    /* text-align: left; */
     padding: 10px;
     border: none;
     background-color: transparent;
@@ -337,6 +149,166 @@
   }
   .bts-fil ul {
     display: none;
+  }
+  /* -------------------ABOUT-US-------------------  */
+  #about-us {
+    background-size: 100%;
+    padding: 100px 40px;
+  }
+  .about-container {
+    width: 100%;
+  }
+  /* ----------------------CONTACT--------------- */
+  .contact-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "map"
+      "direct"
+      "form";
+    gap: 10px;
+  }
+  .contact-map iframe {
+    /* margin-right: 20px; */
+    width: 80%;
+    height: 200px;
+    margin: 0 40px 20px;
+  }
+  .contact-direct {
+    padding: 1em;
+    border-radius: 5px;
+    border: 2px solid;
+    width: 80%;
+    margin: 40px;
+  }
+
+  .contact-info {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .titulo-info {
+    margin-bottom: 5px;
+  }
+
+  .campo-formulario input,
+  .campo-formulario-full textarea {
+    width: 80%;
+    margin: 0 40px;
+  }
+  .campo-formulario input {
+    width: 60%;
+  }
+
+  .campo-formulario button {
+    max-width: none;
+    width: 60%;
+  }
+
+  /* -------------------FOOTER------------------- */
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-logo,
+  .footer-redes-sociales-container,
+  .footer-links {
+    margin: 20px 0;
+  }
+  .footer-left-fraction {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-direct {
+    font-size: 14px;
+  }
+
+  .titulo-info {
+    font-size: 14px;
+  }
+
+  .texto-info {
+    font-size: 12px;
+  }
+
+  .campo-formulario label {
+    font-size: 14px;
+  }
+
+  .campo-formulario input,
+  .campo-formulario-full textarea {
+    font-size: 14px;
+  }
+
+  .campo-formulario button {
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  #contact {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 576px) {
+  /* ------------HERO--------------- */
+  #hero .info h1 {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+  }
+  #hero .info h2 {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+  }
+  #hero .info p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+  #hero .info button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  #hero-video {
+    object-position: 50% 10%;
+  }
+  /* ------------PRODUCTOS--------------- */
+  .card {
+    width: 230px;
+    height: 320px;
+  }
+
+  .product-card-image {
+    padding: 20px 0px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .product-price,
+  .product-duration {
+    padding: 10px;
+  }
+  /* ------------ABOUT-US------------- */
+  #about-us {
+    padding: 0;
+  }
+  .about-container {
+    padding: 60px;
+  }
+  /* ------------FOOTER--------------- */
+  .footer-redes-sociales-container i {
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+  }
+  .footer-links li {
+    margin-bottom: 5px;
+  }
+  .footer-links a {
+    font-size: 12px;
   }
 }
 

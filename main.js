@@ -49,7 +49,12 @@ const renderProduct = (product) => {
   <div class="card-container">
     <div class="card">
       <div class="card-front">
-        <div class="product-card-image" style="background-image: url(${backgroundImg})">
+        <div class="product-card-image" style="  background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(${backgroundImg});">
           <h2 class="product-name">${nombre}</h2>
         </div>
         <div class="product-price">

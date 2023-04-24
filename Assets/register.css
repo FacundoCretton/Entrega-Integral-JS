@@ -147,11 +147,6 @@ button:hover {
   font-weight: 600;
 }
 
-.register a,
-.forget a {
-  color: #14014d;
-}
-
 .register p a:hover {
   text-decoration: underline;
 }
@@ -166,8 +161,14 @@ form {
   justify-content: space-between;
   /* margin-bottom: 30px; */
 }
-.register a {
-  color: #088c8e;
+.register a,
+.forget a {
+  color: #8e0808;
+}
+
+.register a:hover,
+.forget a:hover {
+  color: #c55f5f;
 }
 .register a {
   display: flex;
@@ -181,4 +182,4 @@ form {
     max-width: 400px;
     padding: 10px;
   }
-} ;
+}
