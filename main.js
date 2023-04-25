@@ -3,6 +3,7 @@ const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 const categoriaList = document.querySelector(".bts-fil")
 const btnLoad = document.querySelector(".btn-load");
+//-------
 const flipIcons = document.querySelectorAll(".flip-icon");
 const card = document.querySelector(".card");
 const header=document.querySelector("header")
@@ -13,21 +14,13 @@ const moonIcon = document.querySelector("#moon-icon");
 const navLinks = document.querySelectorAll('.navbar a');
 // -------
 const buyBtn = document.querySelector(".btn-buy");
-// Botón para abrir y cerrar carrito
-//Burbuja de cantidad de productos en el carrito
 const cartBubble = document.querySelector(".cart-bubble");
 const cartBtn = document.querySelector(".cart-label");
-// Botón para abrir y cerrar menú
 const barsBtn = document.querySelector(".menu-label");
-// Carrito
 const cartMenu = document.querySelector(".cart");
-//  Menú (Hamburguesa)
 const barsMenu = document.querySelector(".navbar-list");
-//  Overlay para tirar facha abajo del menú hamburguesa y el cart.
 const overlay = document.querySelector(".overlay");
-//  Modal de agregado al carrito.
 const successModal = document.querySelector(".add-modal");
-//  Modal de agregado al carrito.
 const deleteBtn = document.querySelector(".btn-delete");
 const productsCart = document.querySelector (".cart-container")
 const total = document.querySelector (".total")
@@ -232,14 +225,8 @@ function smoothScroll() {
     });
   });
 }
-// -------------------------------------------------------
-// botonesCategorias.forEach((btn) => {
-//   btn.addEventListener("click", function (event) {
-//     const categoria = event.target.dataset.categoria;
-//     renderCategoryProducts(categoria);
-//   });
-// });
-// -----------------PRUEBA---------------
+
+// -----------------Carrito---------------
 const toggleMenu = (event) => {
   if (event.target.matches('[data-logo]') || event.target.closest('[data-logo]')) {
     return;
@@ -289,7 +276,6 @@ const closeOnOverlayClick = () => {
 	overlay.classList.remove("show-overlay");
 };
 
-// ---------------------------MAS PRUEBAS-------------------
 
 const renderCardProduct = (cartProduct) => {
   const { id, nombre, precio, duracion, img, quantity } = cartProduct;
