@@ -365,3 +365,14 @@
     width: 80%;
   }
 }
+
+@media (max-width: 400px) {
+  .categories-menu {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+  }
+  .categories-menu button {
+    border-radius: 40px;
+  }
+}
