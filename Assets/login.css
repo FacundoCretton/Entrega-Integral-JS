@@ -54,6 +54,7 @@ section {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  flex-wrap: wrap;
 }
 h2 {
   font-size: 2em;
@@ -62,8 +63,9 @@ h2 {
 }
 .inputbox {
   position: relative;
-  margin: 30px 0;
-  width: 310px;
+  margin: 15px;
+  flex: 1;
+  max-width: 400px;
   border-bottom: 2px solid #2e2e2e;
 }
 .inputbox label {
@@ -145,6 +147,6 @@ button:hover {
 
 @media (max-width: 576px) {
   .form-box {
-    max-width: 400px;
+    width: 90%;
   }
 }
