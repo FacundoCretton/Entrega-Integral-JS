@@ -449,6 +449,7 @@ header.dark-mode {
   padding: 40px 0;
   max-width: 1200px;
   width: 100%;
+  margin: auto;
 }
 .product-container {
   flex-wrap: wrap;
