@@ -32,7 +32,9 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const saveLocalStorage = (cartList) => {
 	localStorage.setItem("cart", JSON.stringify(cartList));
+
 };
+
 
 
 const renderProduct = (product) => {
@@ -496,7 +498,6 @@ const init =()=>{
   deleteBtn.addEventListener("click", deleteCart);
   disableBtn(buyBtn);
   disableBtn(deleteBtn);
-  updateProductQuantity()
 
 }
 init();

@@ -474,6 +474,7 @@ header.dark-mode {
 /* ----------------------------------------PRODUCTS---------------------------------------- */
 #products {
   margin-bottom: 100px;
+  max-width: 1200px;
 }
 .card {
   width: 250px;
@@ -676,11 +677,13 @@ header.dark-mode {
 /* ABOUT US */
 #about-us {
   /* display: flex; */
-  background: url(Assets/Img/About-Us-Img.jpg) no-repeat left;
+  background: url(/Assets/Img/About-Us-Img.jpg) no-repeat left;
   background-size: 60%;
   overflow: hidden;
   padding: 100px 0;
   margin-bottom: 100px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .about-container {
@@ -718,6 +721,10 @@ header.dark-mode {
 
 /* ---------------------------------CONTACT-------------------------------- */
 
+#contact {
+  max-width: 1200px;
+  margin: auto;
+}
 .contact-intro {
   text-align: center;
   width: 60%;
