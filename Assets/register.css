@@ -175,6 +175,23 @@ form {
   flex-direction: column;
 }
 
+.inputbox.error label {
+  color: red;
+}
+
+.inputbox.error small {
+  color: red;
+  visibility: visible;
+}
+
+.inputbox.success label {
+  color: green;
+}
+
+.eye-icon.active {
+  color: blue;
+}
+
 @media (max-width: 576px) {
   .form-box {
     /* max-width: 400px; */

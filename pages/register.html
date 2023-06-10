@@ -32,36 +32,44 @@
         <form id="form">
           <div class="input-row">
             <div class="inputbox">
-              <input type="text" name="nombre" id="nombre" required />
+              <input type="text" name="nombre" id="nombre" placeholder="" />
               <label for="nombre">Nombre</label>
+              <small></small>
             </div>
             <div class="inputbox">
-              <input type="text" name="apellido" id="apellido" required />
+              <input type="text" name="apellido" id="apellido" />
               <label for="apellido">Apellido</label>
+              <small></small>
             </div>
           </div>
           <div class="input-row">
             <div class="inputbox">
-              <input type="tel" name="telefono" id="telefono" required />
+              <input type="tel" name="telefono" id="telefono" />
               <label for="telefono">Teléfono</label>
+              <small></small>
             </div>
             <div class="inputbox">
-              <input type="email" name="email" id="email" required />
+              <input type="email" name="email" id="email" />
               <label for="email">Email</label>
+              <small></small>
             </div>
           </div>
           <div class="input-row">
             <div class="inputbox">
               <input type="password" name="contrasena" id="contrasena" />
+              <i class="fas fa-eye eye-icon"></i>
               <label for="contrasena">Contraseña</label>
+              <small></small>
             </div>
             <div class="inputbox">
               <input
                 type="password"
                 name="confirmar_contrasena"
-                id="confirmar_contrasena"
+                id="contrasena2"
               />
+              <i class="fas fa-eye eye-icon"></i>
               <label for="confirmar_contrasena">Confirmar contraseña</label>
+              <small></small>
             </div>
           </div>
           <button type="submit">Registrarse</button>
@@ -76,5 +84,6 @@
       </div>
     </section>
     <script src="/pages/Modo-Oscuro-Claro/claro-oscuro.js"></script>
+    <script src="/Assets/validations.js"></script>
   </body>
 </html>
