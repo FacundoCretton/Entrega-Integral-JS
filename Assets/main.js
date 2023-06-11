@@ -212,25 +212,29 @@ toggleTheme = () => {
 const smoothScroll = () => {
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
-      const href = link.getAttribute('href');
-      const offsetTop = document.querySelector(href).offsetTop;
+      try {
+        const href = link.getAttribute('href');
+        const offsetTop = document.querySelector(href).offsetTop;
 
-      if (href === '#hero') {
-        event.preventDefault();
-        window.scrollTo({
-          top: offsetTop - 120,
-          behavior: 'smooth'
-        });
-      } else {
-        event.preventDefault();
-        window.scrollTo({
-          top: offsetTop - 60,
-          behavior: 'smooth'
-        });
+        if (href === '#hero') {
+          event.preventDefault();
+          window.scrollTo({
+            top: offsetTop - 120,
+            behavior: 'smooth'
+          });
+        } else {
+          event.preventDefault();
+          window.scrollTo({
+            top: offsetTop - 60,
+            behavior: 'smooth'
+          });
+        }
+      } catch (error) {
       }
     });
   });
 };
+
 
 
 // -----------------Carrito---------------
