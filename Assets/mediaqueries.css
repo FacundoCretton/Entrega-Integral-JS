@@ -195,21 +195,27 @@
     margin-bottom: 5px;
   }
 
-  .campo-formulario input,
+  /* .campo-formulario input,
   .campo-formulario-full textarea {
     width: 80%;
     margin: 0 40px;
   }
   .campo-formulario input {
     width: 60%;
-  }
+  } */
 
   .campo-formulario button {
     max-width: none;
     width: 60%;
   }
+  .contenedor-formulario {
+    width: 80%;
+    margin: 20px auto;
+  }
+
   .contenedor-formulario form {
     margin: 20px auto;
+    width: 80%;
   }
 
   /* -------------------FOOTER------------------- */
