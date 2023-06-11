@@ -755,6 +755,9 @@ p {
 
 .contact-map {
   grid-area: map;
+  margin: auto;
+  width: 400px;
+  height: 400px;
 }
 
 .contact-map iframe {
