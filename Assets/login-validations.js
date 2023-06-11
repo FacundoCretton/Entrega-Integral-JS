@@ -85,3 +85,18 @@ form.addEventListener('submit', (e) => {
     checkEmail();
     checkPassword();
 });
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    let  isEmailValid = checkEmail(), isPasswordValid = checkPassword();
+  
+    let isFormValid =  isEmailValid && isPasswordValid;
+
+  
+    if (isFormValid) {
+        form.submit();
+    }
+   
+    
+});

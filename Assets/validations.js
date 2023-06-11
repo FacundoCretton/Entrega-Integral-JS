@@ -9,13 +9,7 @@ const inputField = document.querySelectorAll('.inputbox');
 const inputFields = document.querySelectorAll('.inputbox input');
 const eyeIcons = document.querySelectorAll('.eye-icon');
 
-eyeIcons.forEach((icon) => {
-  icon.addEventListener('click', () => {
-    // Lógica para cambiar el tipo de entrada y estilos
-    const passwordField = icon.previousElementSibling;
-    // Resto del código para cambiar el tipo de entrada y estilos según corresponda
-  });
-});
+
 
 
 
@@ -204,11 +198,9 @@ inputFields.forEach((input) => {
 
 
 
-//Envio del submit luego de validar
 form.addEventListener('submit', (e) => {
     e.preventDefault();
   
-    // Validar los campos
     let isNameValid = checkName(),
         isSurnameValid = checkSurname(),
         isEmailValid = checkEmail(),
@@ -223,10 +215,8 @@ form.addEventListener('submit', (e) => {
         isPasswordValid &&
         isPassword2Valid;
   
-    // Enviar datos si el formulario es válido, reiniciar el formulario y los label
     if (isFormValid) {
-        sendFormData();
-        form.reset();
+        form.submit();
     }
    
     
