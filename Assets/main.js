@@ -212,29 +212,33 @@ toggleTheme = () => {
 const smoothScroll = () => {
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
+      event.preventDefault();
+
       const href = link.getAttribute('href');
-      const targetElement = document.getElementById(href.slice(1));
 
-      if (targetElement) {
-        const offsetTop = targetElement.offsetTop;
+      if (href === '#hero') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else if (href.startsWith('#')) {
+        const targetElement = document.querySelector(href);
 
-        if (href === '#hero') {
-          event.preventDefault();
-          window.scrollTo({
-            top: offsetTop - 120,
-            behavior: 'smooth'
-          });
-        } else {
-          event.preventDefault();
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop;
+
           window.scrollTo({
             top: offsetTop - 60,
             behavior: 'smooth'
           });
         }
+      } else {
+        window.location.href = href;
       }
     });
   });
 };
+
 
 
 // -----------------Carrito---------------
