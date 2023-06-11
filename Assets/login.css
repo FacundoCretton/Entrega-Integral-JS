@@ -110,7 +110,7 @@ input:valid ~ label {
 .register a:hover {
   color: #c55f5f;
 }
-button {
+.btn-register {
   display: block;
   margin: auto;
   width: 80%;
