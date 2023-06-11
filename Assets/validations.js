@@ -201,14 +201,33 @@ inputFields.forEach((input) => {
 
 
 
+
+
+
+//Envio del submit luego de validar
 form.addEventListener('submit', (e) => {
-e.preventDefault();
-checkName();
-checkSurname();
-checkEmail();
-checkPhone();
-checkPassword();
-checkPassword2();
+    e.preventDefault();
+  
+    // Validar los campos
+    let isNameValid = checkName(),
+        isSurnameValid = checkSurname(),
+        isEmailValid = checkEmail(),
+        isPhoneValid = checkPhone(),
+        isPasswordValid = checkPassword(),
+        isPassword2Valid = checkPassword2();
+  
+    let isFormValid = isNameValid &&
+        isSurnameValid &&
+        isEmailValid &&
+        isPhoneValid &&
+        isPasswordValid &&
+        isPassword2Valid;
+  
+    // Enviar datos si el formulario es válido, reiniciar el formulario y los label
+    if (isFormValid) {
+        sendFormData();
+        form.reset();
+    }
+   
+    
 });
-
-
