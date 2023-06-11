@@ -151,6 +151,11 @@ button:hover {
   .form-box {
     width: 90%;
   }
+
+  .register,
+  .forget {
+    font-size: 0.8em;
+  }
 }
 
 .inputbox.error label {
