@@ -183,7 +183,7 @@
     border-radius: 5px;
     border: 2px solid;
     width: 80%;
-    margin: 40px;
+    margin: 20px auto;
   }
 
   .contact-info {
@@ -207,6 +207,9 @@
   .campo-formulario button {
     max-width: none;
     width: 60%;
+  }
+  .contenedor-formulario form {
+    margin: 20px auto;
   }
 
   /* -------------------FOOTER------------------- */
@@ -368,6 +371,9 @@
   }
   .divider {
     width: 80%;
+  }
+  .contact-map {
+    display: none;
   }
 }
 
