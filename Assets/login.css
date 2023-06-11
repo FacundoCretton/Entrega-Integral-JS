@@ -96,7 +96,7 @@ input:valid ~ label {
   margin: -15px 0 15px;
   font-size: 0.9em;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .forget a {
@@ -111,7 +111,9 @@ input:valid ~ label {
   color: #c55f5f;
 }
 button {
-  width: 100%;
+  display: block;
+  margin: auto;
+  width: 80%;
   height: 40px;
   border-radius: 40px;
   border: none;

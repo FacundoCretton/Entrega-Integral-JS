@@ -209,24 +209,29 @@ toggleTheme = () => {
   }
 }
 // ------------------Smooth Scroll----------------
-function smoothScroll() {
-
+const smoothScroll = () => {
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
       const href = link.getAttribute('href');
       const offsetTop = document.querySelector(href).offsetTop;
-      if (href === "/pages/login.html") {
-        // no prevenimos el comportamiento predeterminado del enlace
-        return;
+
+      if (href === '#hero') {
+        event.preventDefault();
+        window.scrollTo({
+          top: offsetTop - 120,
+          behavior: 'smooth'
+        });
+      } else {
+        event.preventDefault();
+        window.scrollTo({
+          top: offsetTop - 60,
+          behavior: 'smooth'
+        });
       }
-      event.preventDefault();
-      window.scrollTo({
-        top: offsetTop - 60,
-        behavior: 'smooth'
-      });
     });
   });
-}
+};
+
 
 // -----------------Carrito---------------
 const toggleMenu = (event) => {
