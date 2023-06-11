@@ -212,9 +212,11 @@ toggleTheme = () => {
 const smoothScroll = () => {
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
-      try {
-        const href = link.getAttribute('href');
-        const offsetTop = document.querySelector(href).offsetTop;
+      const href = link.getAttribute('href');
+      const targetElement = document.getElementById(href.slice(1));
+
+      if (targetElement) {
+        const offsetTop = targetElement.offsetTop;
 
         if (href === '#hero') {
           event.preventDefault();
@@ -229,12 +231,10 @@ const smoothScroll = () => {
             behavior: 'smooth'
           });
         }
-      } catch (error) {
       }
     });
   });
 };
-
 
 
 // -----------------Carrito---------------
